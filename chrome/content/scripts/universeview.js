@@ -8,8 +8,12 @@
             SERVER: "serverData.xml",
             LOCALE: "localization.xml",
             checkXML: function (e, t, i) {
+var ll = new URL(document.location.href);
+var tmp = ll.pathname.split('/').slice(-1)[0].split('-');
+var server = tmp[0];
+var lang = tmp[1];
                 new l({
-                    url: (i || a.location.origin) + "/api/" + t,
+                    url: (i || a.location.origin) + "/api/" + server + "/" + lang + "/" + t,
                     method: "head",
                     response: "xml",
                     onStop: function () {
@@ -21,9 +25,13 @@
                 });
             },
             fetchXML: function (e, t, i, n) {
+var ll = new URL(document.location.href);
+var tmp = ll.pathname.split('/').slice(-1)[0].split('-');
+var server = tmp[0];
+var lang = tmp[1];
                 new l({
                     cache: "boolean" == typeof i && i,
-                    url: (n || a.location.origin) + "/api/" + t,
+                    url: (n || a.location.origin) + "/api/" + server + "/" + lang + "/" + t,
                     method: "get",
                     response: "xml",
                     onReceived: function (t) {
@@ -311,7 +319,7 @@
                     : setTimeout(g, 1);
             },
             v = () => {
-                const e = /s(\d+)-(\w+)\.ogame\.gameforge\.com/.exec(a.location.host);
+                const e = /browser\/html\/s(\d+)-(\w+)/.exec(a.location.href);
                 (d.universeNumber = e[1]), (d.community = e[2]);
             },
             f = (t, a) => {

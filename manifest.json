@@ -10,10 +10,10 @@
 	"manifest_version": 2,
 	"content_scripts": [
 		{
-			"include_globs": ["*://*.ogame.gameforge.com/game/index.php*"],
+			"include_globs": ["*://*/*"],
 			"js": ["chrome/content/scripts/universeview.js"],
 			"css": ["chrome/content/css/stylesheet.css", "chrome/content/css/skin.css"],
-			"matches": ["*://*.ogame.gameforge.com/game/index.php*"],
+			"matches": ["*://*/*"],
 			"run_at": "document_start"
 		}
 	],
@@ -28,7 +28,7 @@
 	"permissions": [
 		"unlimitedStorage",
 		"storage",
-		"*://*.ogame.gameforge.com/*",
+		"*://*/*",
 		"management",
 		"notifications",
 		"alarms",

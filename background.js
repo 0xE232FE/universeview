@@ -369,7 +369,7 @@
             };
         })()),
         (i.ft.IdleTimer = (function () {
-            const t = "https://" + o.ogameURL.replace("s{UID}", "*") + "/*";
+            const t = "https://*/*";
             let i = {},
                 n = {};
             const a = function () {
@@ -665,7 +665,7 @@
         })(),
     };
     t.onMessage.addListener(function (e, t, n) {
-        var a = /s(\d+)-(\w+)\.ogame\.gameforge\.com/.exec(t.url),
+        var a = /browser\/html\/s(\d+)-(\w+)/.exec(t.url),
             s = a[1] + "-" + a[2];
         if (
             ("launch" === e.action && ((o.ago = i.AGO.isEnabled()), n({ config: o }), h.universe.initialize(s)),
